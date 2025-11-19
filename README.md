@@ -195,6 +195,147 @@ Deep dive vào từng workflow cụ thể của phòng khám, từ đăng ký đ
 
 ---
 
+#### 📗 [06. Appointment Scheduling Workflow](docs/workflow-deep-dives/06-appointment-scheduling.md)
+
+**Nội dung:**
+
+- Types of appointments (New Visit, Follow-up, Consultation, Annual Checkup)
+- Booking channels (Walk-in, Phone, Online, In-person)
+- Complete appointment scheduling flow (9 steps)
+- Data model: appointments, doctor_schedules, appointment slots
+- Availability checking logic
+- Online booking flow & Phone booking flow
+- Appointment status management (Scheduled → Completed/Cancelled/No-show)
+- Reminder system (24h before, 2h before)
+- Cancellation & rescheduling workflows
+- Queue management (Appointment vs Walk-in)
+- No-show management & policies
+
+**Key learnings:**
+
+- Appointment scheduling giúp tối ưu thời gian và cải thiện UX
+- Multiple booking channels cần được hỗ trợ
+- Reminder system giảm no-show rate
+- Queue management cân bằng appointment vs walk-in
+- Integration với registration và consultation
+
+**Thời gian đọc**: 35-45 phút
+
+---
+
+#### 📗 [07. User Management & Security](docs/workflow-deep-dives/07-user-management-security.md)
+
+**Nội dung:**
+
+- User roles & responsibilities (Clinical, Administrative, Management)
+- Role-Based Access Control (RBAC) model
+- Permission matrix (View, Create, Modify, Delete)
+- Data model: users, roles, permissions, role_permissions, audit_logs
+- Authentication & authorization flow
+- Permission examples (View Patient, Create Prescription)
+- UI/UX design (Login, User Management, Role Permission Management)
+- Security best practices (Password policy, Session management, Data encryption)
+- Audit trail (What to log, Audit log examples)
+- Common security scenarios (Doctor leaves, Temporary access, Emergency access)
+- Vietnam-specific requirements (License management, Data retention)
+
+**Key learnings:**
+
+- RBAC là foundation cho security
+- Role-based permissions đơn giản và hiệu quả
+- Audit logs bắt buộc cho compliance
+- Session management quan trọng cho security
+- Scope restrictions (ALL, OWN, ASSIGNED) linh hoạt
+
+**Thời gian đọc**: 40-50 phút
+
+---
+
+#### 📗 [08. Reporting & Analytics](docs/workflow-deep-dives/08-reporting-analytics.md)
+
+**Nội dung:**
+
+- Types of reports (Clinical, Operational, Financial, Administrative)
+- Clinical reports (Patient Summary, Diagnosis Statistics, Treatment Outcomes)
+- Operational reports (Daily Activity, Appointment Statistics, Doctor Productivity)
+- Financial reports (Daily/Monthly Revenue, BHYT Claims, Outstanding Bills)
+- Report generation flow (Real-time vs Scheduled)
+- Data model: report_definitions, report_executions, report_schedules
+- Analytics & dashboards (KPIs, Visual metrics)
+- Data export (PDF, Excel, CSV, JSON)
+- Report access control (Role-based)
+- Performance considerations (Optimization, Pre-calculated summary tables)
+
+**Key learnings:**
+
+- Multiple report types phục vụ different needs
+- Real-time vs Scheduled reports tùy nhu cầu
+- Role-based access đảm bảo security
+- Performance optimization quan trọng với large dataset
+- Dashboards cung cấp quick insights
+
+**Thời gian đọc**: 35-45 phút
+
+---
+
+#### 📗 [09. Vietnam Compliance & Regulations](docs/workflow-deep-dives/09-vietnam-compliance-regulations.md)
+
+**Nội dung:**
+
+- Medical Records Regulations (Required information, Format, Retention)
+- BHYT Requirements (Card validation, Coverage rules, Claim submission)
+- ICD-10 Coding Requirements (Mandatory usage, Implementation)
+- Prescription Regulations (Required information, Controlled substances)
+- Lab Test Regulations (Required information, Critical values)
+- Data Privacy & Security (Patient data protection, Consent management)
+- License & Certification (Medical license, Facility license)
+- Reporting Requirements (Mandatory reports, Incident reporting)
+- Quality Standards (Clinical quality indicators, Continuous improvement)
+- Implementation checklist
+
+**Key learnings:**
+
+- Medical records phải đầy đủ và lưu trữ lâu dài (15-20 năm)
+- BHYT compliance là bắt buộc cho thanh toán
+- ICD-10 coding bắt buộc cho tất cả chẩn đoán
+- Prescription regulations nghiêm ngặt
+- Data privacy phải được bảo vệ
+- License management quan trọng
+
+**Thời gian đọc**: 40-50 phút
+
+---
+
+#### 📗 [10. System Architecture Overview](docs/workflow-deep-dives/10-system-architecture-overview.md)
+
+**Nội dung:**
+
+- System Components (Core modules, Module descriptions)
+- Data Flow (Complete patient journey, Data dependencies)
+- Module Interactions (Registration ↔ Appointment, Consultation ↔ Lab, etc.)
+- Integration Points (BHYT, LIS, PACS)
+- Database Overview (Core tables, Key relationships)
+- User Roles & Access (Role-based module access, Data access scope)
+- Workflow Integration (Registration → Appointment → Consultation)
+- System Boundaries (What's inside/outside HIS)
+- Data Consistency (Master data, Transactional data)
+- Scalability Considerations (Horizontal/Vertical scaling, Caching)
+- Security Architecture (Authentication, Authorization, Data protection)
+- Deployment Architecture (Typical deployment, Integration layer)
+
+**Key learnings:**
+
+- Modular architecture: Mỗi module độc lập nhưng tích hợp chặt chẽ
+- Data flow rõ ràng từ registration → consultation → billing
+- Integration points qua standard protocols (HL7, DICOM, XML)
+- Role-based access: Mỗi role có quyền truy cập phù hợp
+- Master data: Single source of truth
+- Scalability: Stateless modules có thể scale horizontal
+
+**Thời gian đọc**: 30-40 phút
+
+---
+
 ## 🎯 Quick Start Guide
 
 ### Cho PM/Team Lead:
@@ -214,20 +355,33 @@ Deep dive vào từng workflow cụ thể của phòng khám, từ đăng ký đ
 **Week 2 - Core Workflows:**
 
 - Day 1: [Patient Registration](docs/workflow-deep-dives/01-patient-registration.md)
-- Day 2: [Outpatient Consultation](docs/workflow-deep-dives/02-outpatient-consultation.md)
-- Day 3: [Diagnostics & Lab Tests](docs/workflow-deep-dives/03-diagnostics-lab-tests.md)
-- Day 4: [Prescription & Pharmacy](docs/workflow-deep-dives/04-prescription-pharmacy.md)
-- Day 5: [Billing & Insurance](docs/workflow-deep-dives/05-billing-insurance.md)
+- Day 2: [Appointment Scheduling](docs/workflow-deep-dives/06-appointment-scheduling.md)
+- Day 3: [Outpatient Consultation](docs/workflow-deep-dives/02-outpatient-consultation.md)
+- Day 4: [Diagnostics & Lab Tests](docs/workflow-deep-dives/03-diagnostics-lab-tests.md)
+- Day 5: [Prescription & Pharmacy](docs/workflow-deep-dives/04-prescription-pharmacy.md)
+
+**Week 3 - Supporting Workflows:**
+
+- Day 1: [Billing & Insurance](docs/workflow-deep-dives/05-billing-insurance.md)
+- Day 2: [User Management & Security](docs/workflow-deep-dives/07-user-management-security.md)
+- Day 3: [Reporting & Analytics](docs/workflow-deep-dives/08-reporting-analytics.md)
+- Day 4: [Vietnam Compliance & Regulations](docs/workflow-deep-dives/09-vietnam-compliance-regulations.md)
+- Day 5: [System Architecture Overview](docs/workflow-deep-dives/10-system-architecture-overview.md)
 
 **Week 3+**: Apply to actual development, refer back khi cần
 
 ### Cho Developers (Feature-specific):
 
 - **Làm Registration module** → Đọc [01-patient-registration.md](docs/workflow-deep-dives/01-patient-registration.md)
+- **Làm Appointment scheduling** → Đọc [06-appointment-scheduling.md](docs/workflow-deep-dives/06-appointment-scheduling.md)
 - **Làm Doctor consultation** → Đọc [02-outpatient-consultation.md](docs/workflow-deep-dives/02-outpatient-consultation.md)
 - **Làm Lab integration** → Đọc [03-diagnostics-lab-tests.md](docs/workflow-deep-dives/03-diagnostics-lab-tests.md) + [03-healthcare-data-standards.md](docs/healthcare-fundamentals/03-healthcare-data-standards.md) (HL7 section)
 - **Làm Prescription** → Đọc [04-prescription-pharmacy.md](docs/workflow-deep-dives/04-prescription-pharmacy.md)
 - **Làm Billing/BHYT** → Đọc [05-billing-insurance.md](docs/workflow-deep-dives/05-billing-insurance.md)
+- **Làm User management/Security** → Đọc [07-user-management-security.md](docs/workflow-deep-dives/07-user-management-security.md)
+- **Làm Reporting** → Đọc [08-reporting-analytics.md](docs/workflow-deep-dives/08-reporting-analytics.md)
+- **Làm Compliance** → Đọc [09-vietnam-compliance-regulations.md](docs/workflow-deep-dives/09-vietnam-compliance-regulations.md)
+- **Thiết kế Architecture** → Đọc [10-system-architecture-overview.md](docs/workflow-deep-dives/10-system-architecture-overview.md)
 
 ---
 
@@ -288,11 +442,13 @@ Deep dive vào từng workflow cụ thể của phòng khám, từ đăng ký đ
 
 **Phase 3 - Advanced Features:**
 
-1. ✅ Lab orders & results (với HL7 integration)
-2. ✅ Imaging orders
-3. ✅ Inventory management (pharmacy)
-4. ✅ Patient portal/app
-5. ✅ Reports & analytics
+1. ✅ Appointment scheduling (online booking, reminders)
+2. ✅ Lab orders & results (với HL7 integration)
+3. ✅ Imaging orders
+4. ✅ Inventory management (pharmacy)
+5. ✅ Patient portal/app
+6. ✅ Reports & analytics
+7. ✅ User management & RBAC
 
 **Phase 4 - Optimization:**
 
